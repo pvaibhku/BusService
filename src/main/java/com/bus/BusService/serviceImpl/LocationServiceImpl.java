@@ -176,6 +176,8 @@ public class LocationServiceImpl implements LocationService{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		states.remove(0);
 		List<State> savedStates = stateRepository.saveAll(states);
 		return savedStates;
 		

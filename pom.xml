@@ -134,6 +134,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>bus-service-app</finalName>
 	</build>
 
 </project>

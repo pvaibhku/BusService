@@ -1,15 +1,23 @@
 package com.bus.BusService.serviceImpl;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bus.BusService.entity.Buses;
+import com.bus.BusService.entity.State;
+import com.bus.BusService.repository.StateRepository;
 import com.bus.BusService.service.BusService;
 
 @Service
 public class BusServiceImpl implements BusService{
+	
+	@Autowired
+	StateRepository stateRepository;
 	
 	Buses buses = new Buses();
 	
@@ -37,6 +45,14 @@ public class BusServiceImpl implements BusService{
 		busList.add(buses);
 		
 		return busList;
+	}
+
+	@Override
+	public List<State> getStates() {
+		// TODO Auto-generated method stub
+		List<State> states = stateRepository.findAll();
+		Collections.sort(states, (s1, s2)-> s1.getName().compareTo(s2.getName()));
+		return states;
 	}
 	
 	
