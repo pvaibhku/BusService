@@ -3,7 +3,8 @@ package com.bus.BusService.service;
 import java.util.List;
 
 import com.bus.BusService.entity.Buses;
-import com.bus.BusService.entity.State;
+import com.bus.BusService.entity.City;
+import com.bus.BusService.response.StateCityResponse;
 
 public interface BusService {
 	
@@ -11,7 +12,9 @@ public interface BusService {
 
 	public List<Buses> fetchAllBuses();
 
-	public List<State> getStates();
+	public List<StateCityResponse> getStates();
+
+	public List<StateCityResponse> getCities(long id);
 	
 
 }
